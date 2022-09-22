@@ -45,6 +45,9 @@ def preprocess_text(text, stop_words=stop_words, min_word_length=3):
         
         # strip out standalone digits
         text = re.sub(r'\b\d+\b', '', text)
+        
+        # strip 'http'
+        text = text.replace('https', '')
 
         # tokenize text into individual terms
         tokens = word_tokenize(text)
